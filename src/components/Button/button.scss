@@ -1,0 +1,124 @@
+@use "@/styles/variables" as vars;
+@use "@/styles/mixin" as mix;
+
+.btn {
+  @include mix.btn-base;
+  @include mix.btn-size(
+    vars.$btn-border-radius,
+    vars.$btn-font-size,
+    vars.$btn-padding-y,
+    vars.$btn-padding-x
+  );
+}
+
+.btn-small {
+  @include mix.btn-size(
+    vars.$btn-border-radius-sm,
+    vars.$btn-font-size-sm,
+    vars.$btn-padding-y-sm,
+    vars.$btn-padding-x-sm
+  );
+}
+
+.btn-middle {
+  @include mix.btn-size(
+    vars.$btn-border-radius,
+    vars.$btn-font-size,
+    vars.$btn-padding-y,
+    vars.$btn-padding-x
+  );
+}
+
+.btn-large {
+  @include mix.btn-size(
+    vars.$btn-border-radius-lg,
+    vars.$btn-font-size-lg,
+    vars.$btn-padding-y-lg,
+    vars.$btn-padding-x-lg
+  );
+}
+
+.btn-primary {
+  @include mix.btn-type(
+    var(--semi-color-white),
+    var(--semi-color-primary),
+    var(--semi-color-primary),
+    var(--semi-color-white),
+    var(--semi-color-primary-hover),
+    var(--semi-color-primary-hover)
+  );
+}
+
+.btn-default {
+  @include mix.btn-type(
+    var(--semi-color-text-0),
+    var(--semi-color-fill-1),
+    var(--semi-color-fill-1),
+    var(--semi-color-text-0),
+    var(--semi-color-default-hover),
+    var(--semi-color-default-hover)
+  );
+}
+
+.btn-danger {
+  @include mix.btn-type(
+    var(--semi-color-white),
+    var(--semi-color-danger),
+    var(--semi-color-danger),
+    var(--semi-color-white),
+    var(--semi-color-danger-hover),
+    var(--semi-color-danger-hover)
+  );
+}
+
+.btn-link {
+  color: var(--semi-color-link);
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    color: var(--semi-color-link-hover);
+  }
+
+  &.disabled {
+    background-color: transparent;
+    border: none;
+    color: var(--semi-color-success-disabled);
+  }
+}
+
+.btn-icon {
+  animation: pin 2s linear infinite;
+  display: inline-block;
+  width: 50px;
+}
+
+@keyframes pin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+.loading {
+  position: relative;
+
+  &::before {
+    background: var(--semi-color-white);
+
+    // background-color: var(--semi-color-primary-hover);
+    border: 1px solid var(--semi-color-white);
+    content: "";
+    height: 100%;
+    left: -1px;
+    opacity: 0.5;
+    pointer-events: none;
+    position: absolute;
+    top: -1px;
+    width: 100%;
+    z-index: 1;
+  }
+}

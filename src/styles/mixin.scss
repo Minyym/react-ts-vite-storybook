@@ -1,0 +1,158 @@
+@use "./variables" as vars;
+
+@mixin shadow-0 {
+  box-shadow: none;
+}
+@mixin shadow-1 {
+  box-shadow: none;
+}
+@mixin shadow-2 {
+  box-shadow: 0 2px 4px 0 rgb(0 0 0 / 14%), 0 0 1px 0 rgb(0 0 0 / 16%);
+}
+@mixin shadow-knob {
+  box-shadow: 0 4px 6px 0 rgb(0 0 0 / 10%), 0 0 1px 0 rgb(0 0 0 / 30%);
+}
+@mixin shadow-elevated {
+  box-shadow: 0 0 1px 0 rgb(0 0 0 / 30%), 0 4px 14px 0 rgb(0 0 0 / 10%);
+}
+
+@mixin box-sizing() {
+  box-sizing: border-box;
+}
+
+@mixin all-center {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+@mixin ver-center {
+  align-items: center;
+  display: flex;
+}
+
+@mixin hor-center {
+  display: flex;
+  justify-content: center;
+}
+
+@mixin text-overflow-hidden {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin no-scrollbar {
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: transparent;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: rgb(0 0 0 / 5%);
+    background-color: transparent;
+    opacity: 0;
+  }
+
+  &:hover {
+    &::-webkit-scrollbar {
+      display: block;
+      width: 8px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: var(--semi-gray-3);
+      border-radius: 10px;
+    }
+
+    &::-webkit-scrollbar-track {
+      // background-color: rgba(0, 0, 0, 0.05);
+    }
+  }
+}
+
+@mixin btn-base {
+  @include shadow-0;
+
+  appearance: button;
+  background: #fff;
+  background-image: none;
+  border: vars.$border-thickness-control solid transparent;
+  color: #606266;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: vars.$font-weight-regular;
+  position: relative;
+  text-align: center;
+  touch-action: manipulation;
+  transition: all 0.3s vars.$ease-in-out;
+  user-select: none;
+  white-space: nowrap;
+
+  &,
+  &:active,
+  &:focus {
+    outline: 0;
+  }
+
+  &:not([disabled]):hover {
+    // background-color: #f5f7fa;
+    // border-color: #e4e7ed;
+    // color: #409eff;
+    text-decoration: none;
+  }
+
+  &:not([disabled]):active {
+    // background-color: #f5f7fa;
+    box-shadow: none;
+    outline: 0;
+  }
+
+  &[disabled],
+  &.disabled {
+    background-color: #f5f7fa;
+    border-color: #e4e7ed;
+    box-shadow: none;
+    color: #c0c4cc;
+    cursor: not-allowed;
+    pointer-events: none;
+
+    > * {
+      pointer-events: none;
+    }
+  }
+}
+
+@mixin btn-size($border-radius, $font-size, $padding-y, $padding-x) {
+  & {
+    border-radius: $border-radius;
+    font-size: $font-size;
+    padding: $padding-y $padding-x;
+  }
+}
+
+//  文字色 背景色 边框色
+// hover 文字色 背景色 边框色
+// focus 文字色 背景色 边框色
+@mixin btn-type(
+  $color,
+  $background-color,
+  $border-color,
+  $hover-color,
+  $hover-background-color,
+  $hover-border-color
+) {
+  background-color: $background-color;
+  border-color: $border-color;
+  color: $color;
+
+  &:hover,
+  &:focus {
+    background-color: $hover-background-color;
+    border-color: $hover-border-color;
+    color: $hover-color;
+  }
+}

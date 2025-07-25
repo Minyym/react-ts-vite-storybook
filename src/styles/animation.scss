@@ -1,0 +1,35 @@
+body {
+  --semi-transform-scale-none: scale(1, 1);
+  --semi-transform-scale-small: scale(1, 1);
+  --semi-transform-scale-medium: scale(1, 1);
+  --semi-transform-scale-large: scale(1, 1);
+  --semi-transform-rotate-none: rotate(0deg);
+  --semi-transform-rotate-clockwise90deg: rotate(90deg);
+  --semi-transform-rotate-clockwise180deg: rotate(180deg);
+  --semi-transform-rotate-clockwise270deg: rotate(270deg);
+  --semi-transform-rotate-clockwise360deg: rotate(360deg);
+  --semi-transform-rotate-anticlockwise90deg: rotate(-90deg);
+  --semi-transform-rotate-anticlockwise180deg: rotate(-180deg);
+  --semi-transform-rotate-anticlockwise270deg: rotate(-270deg);
+  --semi-transform-rotate-anticlockwise360deg: rotate(-360deg);
+  --semi-transition-delay-fast: 180ms;
+  --semi-transition-delay-none: 0ms;
+  --semi-transition-delay-slow: 1000ms;
+  --semi-transition-delay-faster: 120ms;
+  --semi-transition-delay-normal: 600ms;
+  --semi-transition-delay-slower: 1200ms;
+  --semi-transition-delay-fastest: 90ms;
+  --semi-transition-delay-slowest: 1800ms;
+  --semi-transition-duration-fast: 180ms;
+  --semi-transition-duration-none: 0ms;
+  --semi-transition-duration-slow: 1000ms;
+  --semi-transition-duration-faster: 120ms;
+  --semi-transition-duration-normal: 600ms;
+  --semi-transition-duration-slower: 1200ms;
+  --semi-transition-duration-fastest: 90ms;
+  --semi-transition-duration-slowest: 1800ms;
+  --semi-transition-function-ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --semi-transition-function-linear: linear;
+  --semi-transition-function-ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --semi-transition-function-ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+}
