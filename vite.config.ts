@@ -15,7 +15,33 @@ const dirname =
 
 // More info at: https://storybook.js.org/docs/next/writing-tests/integrations/vitest-addon
 export default defineConfig({
-  plugins: [legacy(), react()],
+  plugins: [
+    legacy({
+      targets: ["defaults", "not IE 11"],
+      additionalLegacyPolyfills: ["regenerator-runtime/runtime"],
+      renderLegacyChunks: true,
+      polyfills: [
+        "es.symbol",
+        "es.promise",
+        "es.promise.finally",
+        "es/map",
+        "es/set",
+        "es.array.filter",
+        "es.array.for-each",
+        "es.array.flat-map",
+        "es.object.define-properties",
+        "es.object.define-property",
+        "es.object.get-own-property-descriptor",
+        "es.object.get-own-property-descriptors",
+        "es.object.keys",
+        "es.object.to-string",
+        "web.dom-collections.for-each",
+        "esnext.global-this",
+        "esnext.string.match-all",
+      ],
+    }),
+    react(),
+  ],
   resolve: {
     alias: {
       // for TypeScript path alias import like : @/x/y/z
@@ -38,6 +64,7 @@ export default defineConfig({
       // the proper extensions will be added
       fileName: "react-ts-vite-storybook",
     },
+    chunkSizeWarningLimit: 1000,
     rollupOptions: {
       // 确保外部化处理那些你不想打包进库的依赖
       external: ["react", "react-dom"],
@@ -46,6 +73,10 @@ export default defineConfig({
         globals: {
           react: "React",
           "react-dom": "ReactDOM",
+        },
+        manualChunks: {
+          vendor: ["react", "react-dom"],
+          icons: ["react-icons"],
         },
       },
     },
