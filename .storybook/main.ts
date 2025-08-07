@@ -30,18 +30,18 @@ const config: StorybookConfig = {
     }
 
     // 确保 legacy 插件配置正确
-    if (config.plugins) {
-      const legacyPlugin = config.plugins.find(
-        plugin => plugin.name === "vite:legacy"
-      );
-      if (legacyPlugin) {
-        // 确保 legacy 插件配置正确
-        legacyPlugin.config = {
-          ...legacyPlugin.config,
-          renderLegacyChunks: true,
-        };
-      }
-    }
+    // if (config.plugins) {
+    //   const legacyPlugin = config.plugins.find(
+    //     plugin => plugin.name === "vite:legacy"
+    //   );
+    //   if (legacyPlugin) {
+    //     // 确保 legacy 插件配置正确
+    //     legacyPlugin.config = {
+    //       ...legacyPlugin.config,
+    //       renderLegacyChunks: true,
+    //     };
+    //   }
+    // }
 
     return config;
   },

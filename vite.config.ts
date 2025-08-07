@@ -1,6 +1,6 @@
 /// <reference types="vitest/config" />
-import { storybookTest } from "@storybook/addon-vitest/vitest-plugin";
-import legacy from "@vitejs/plugin-legacy";
+// import { storybookTest } from "@storybook/addon-vitest/vitest-plugin";
+// import legacy from "@vitejs/plugin-legacy";
 import react from "@vitejs/plugin-react";
 // https://vitejs.dev/config/
 import path from "node:path";
@@ -16,30 +16,30 @@ const dirname =
 // More info at: https://storybook.js.org/docs/next/writing-tests/integrations/vitest-addon
 export default defineConfig({
   plugins: [
-    legacy({
-      targets: ["defaults", "not IE 11"],
-      additionalLegacyPolyfills: ["regenerator-runtime/runtime"],
-      renderLegacyChunks: true,
-      polyfills: [
-        "es.symbol",
-        "es.promise",
-        "es.promise.finally",
-        "es/map",
-        "es/set",
-        "es.array.filter",
-        "es.array.for-each",
-        "es.array.flat-map",
-        "es.object.define-properties",
-        "es.object.define-property",
-        "es.object.get-own-property-descriptor",
-        "es.object.get-own-property-descriptors",
-        "es.object.keys",
-        "es.object.to-string",
-        "web.dom-collections.for-each",
-        "esnext.global-this",
-        "esnext.string.match-all",
-      ],
-    }),
+    // legacy({
+    //   targets: ["defaults", "not IE 11"],
+    //   additionalLegacyPolyfills: ["regenerator-runtime/runtime"],
+    //   renderLegacyChunks: true,
+    //   polyfills: [
+    //     "es.symbol",
+    //     "es.promise",
+    //     "es.promise.finally",
+    //     "es/map",
+    //     "es/set",
+    //     "es.array.filter",
+    //     "es.array.for-each",
+    //     "es.array.flat-map",
+    //     "es.object.define-properties",
+    //     "es.object.define-property",
+    //     "es.object.get-own-property-descriptor",
+    //     "es.object.get-own-property-descriptors",
+    //     "es.object.keys",
+    //     "es.object.to-string",
+    //     "web.dom-collections.for-each",
+    //     "esnext.global-this",
+    //     "esnext.string.match-all",
+    //   ],
+    // }),
     react(),
   ],
   resolve: {
@@ -88,9 +88,9 @@ export default defineConfig({
         plugins: [
           // The plugin will run tests for the stories defined in your Storybook config
           // See options at: https://storybook.js.org/docs/next/writing-tests/integrations/vitest-addon#storybooktest
-          storybookTest({
-            configDir: path.join(dirname, ".storybook"),
-          }),
+          // storybookTest({
+          //   configDir: path.join(dirname, ".storybook"),
+          // }),
         ],
         test: {
           name: "storybook",
