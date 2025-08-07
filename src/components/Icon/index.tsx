@@ -48,8 +48,40 @@ const Icon: React.FC<IconProps> = ({
           throw new Error("Icon type and name are required");
         }
 
-        // 动态导入图标库
-        const iconLibrary = await import(`react-icons/${type}`);
+        // 使用更安全的方式动态导入图标
+        let iconLibrary;
+        switch (type) {
+          case "ai":
+            iconLibrary = await import("react-icons/ai");
+            break;
+          case "bi":
+            iconLibrary = await import("react-icons/bi");
+            break;
+          case "bs":
+            iconLibrary = await import("react-icons/bs");
+            break;
+          case "ci":
+            iconLibrary = await import("react-icons/ci");
+            break;
+          case "di":
+            iconLibrary = await import("react-icons/di");
+            break;
+          case "fa":
+            iconLibrary = await import("react-icons/fa");
+            break;
+          case "fi":
+            iconLibrary = await import("react-icons/fi");
+            break;
+          case "gi":
+            iconLibrary = await import("react-icons/gi");
+            break;
+          case "hi":
+            iconLibrary = await import("react-icons/hi");
+            break;
+          default:
+            throw new Error(`Invalid icon type: ${type}`);
+        }
+
         const IconComponent = iconLibrary[icon];
 
         if (!IconComponent) {
